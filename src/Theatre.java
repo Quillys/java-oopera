@@ -1,5 +1,5 @@
 public class Theatre {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("*** ТЕАТР НАЧИНАЕТ РАБОТУ ***\n");
 
         // 1. Создаём актёров

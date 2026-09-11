@@ -8,6 +8,15 @@ public class Show {
     protected List<Actor> listOfActors;
 
     public Show(String title, int duration, Director director) {
+        if (title == null) {
+            throw new IllegalArgumentException("Название спектакля не может быть null!");
+        }
+        if (duration <= 0) {
+            throw new IllegalArgumentException("Длительность спектакля должна быть положительной!");
+        }
+        if (director == null) {
+            throw new IllegalArgumentException("Режиссёр спектакля не может быть null!");
+        }
         this.title = title;
         this.duration = duration;
         this.director = director;
@@ -42,6 +51,10 @@ public class Show {
 
     // Метод для замены актёра
     public void replaceActor(Actor newActor, String surnameToReplace) {
+        if (listOfActors.contains(newActor)) {
+            System.out.println("Предупреждение: Актёр " + newActor + " уже участвует в спектакле!");
+            return;
+        }
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor actor = listOfActors.get(i);
             if (actor.surname.equals(surnameToReplace)) {

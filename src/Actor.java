@@ -5,6 +5,12 @@ public class Actor extends Person {
 
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
+        if (name == null || surname == null || gender == null) {
+            throw new IllegalArgumentException("Имя, фамилия, гендер не могут быть null");
+        }
+        if (height <= 0) {
+            throw new IllegalArgumentException("Рост должен быть положительным");
+        }
         this.height = height;
     }
 
